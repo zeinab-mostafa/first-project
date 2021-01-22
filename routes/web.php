@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('products','crudController@getproducts');
+Route::group(['prefix'=>'products'],function(){
+   // Route::get('store','crudController@store');
+    Route::get('create','crudController@create');
+    Route::post('store','crudController@store')->name('products.store');   
+    Route::get('all','crudController@getallproducts');   
+
+    //Route::post('store','crudController@store')->name('products.store');   
+
+});
